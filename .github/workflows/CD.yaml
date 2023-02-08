@@ -12,7 +12,9 @@ jobs:
       - name: Azure Login
         uses: Azure/login@v1.4.6
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          client-id: 95b51dc8-05cf-4bb0-aab9-75689e54460c
+          tenant-id: 3d4d17ea-1ae4-4705-947e-51369c5a5f79
+          subscription-id: 6f7494fe-933c-456b-866d-8d626699fbae
       - name: Setup Pulumi CLI
         uses: pulumi/setup-pulumi@v2.0.0
       - name: Pulumi Preview
