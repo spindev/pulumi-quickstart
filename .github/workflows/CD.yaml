@@ -5,6 +5,7 @@ on: [workflow_dispatch]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v3.3.0
@@ -14,3 +15,4 @@ jobs:
         uses: pulumi/actions@v4.0.0
         with:
           command: up
+          stack-name: dev
