@@ -1,7 +1,13 @@
 name: Deploy to Azure
 
-on: [workflow_dispatch]
-
+on:   
+  workflow_dispatch:
+    inputs:
+      stack-name:
+        description: 'Stack to deploy'
+        required: true
+        default: 'dev'
+        type: string
 permissions:
   contents: read
   pages: write
@@ -20,7 +26,7 @@ jobs:
         uses: pulumi/actions@v4.0.0
         with:
           command: preview
-          stack-name: dev
+          stack-name: $ {{ github.event.inputs.stack-name }}
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
