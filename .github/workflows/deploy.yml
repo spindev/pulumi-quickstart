@@ -32,8 +32,8 @@ jobs:
         with:
           command: up -y
           stack-name: ${{ github.event.inputs.stack-name }}
-      - name: Pulumi down
+      - name: Pulumi destroy
         uses: pulumi/actions@v4.0.0
         with:
-          command: down -y
+          command: destroy -y
           stack-name: ${{ github.event.inputs.stack-name }}
